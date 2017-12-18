@@ -8,8 +8,7 @@ import twitter4j.TwitterFactory;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ViralTweet {
 
@@ -19,29 +18,13 @@ public class ViralTweet {
         authenticate(twitter);
 
         System.out.println();
+        System.out.println();
+        System.out.println();
 
-        // The factory instance is re-useable and thread safe.
-        Query query = new Query("betabertrand");
-        QueryResult result = twitter.search(query);
-        for (Status status : result.getTweets()) {
-            System.out.println("@" + status.getUser().getScreenName() + ":" + status.getText());
-        }
-
-//        // The factory instance is re-useable and thread safe.
-//        List<Status> statuses = twitter.getHomeTimeline();
-//        System.out.println("Showing home timeline.");
-//        for (Status status : statuses) {
-//            System.out.println(status.getUser().getName() + ":" +
-//                    status.getText());
-//        }
+        System.out.print(generateViralTweet(wordGram(convertStringArrayToText(getTrendSearchResults(twitter, getTopTrends(twitter))))));
 
 
-
-
-
-
-
-
+        //Status status = twitter.updateStatus("hello world");
 
 
     }
@@ -57,8 +40,36 @@ public class ViralTweet {
         for (Trend t : popTrend.getTrends()) {
             trendList.add(t.getName());
         }
+        String[] tList = new String[trendList.size()];
+        //tList = trendList.toArray(tList);
+        return trendList.toArray(tList);
+    }
 
-        return (String[]) trendList.toArray();
+    public static String[] getTrendSearchResults(Twitter twitter, String[] trends) throws TwitterException {
+        ArrayList<String> searchResultList = new ArrayList();
+        for (String t : trends) {
+            Query query = new Query(t);
+            QueryResult result = twitter.search(query);
+            for (Status status : result.getTweets()) {
+                //System.out.println("@" + status.getUser().getScreenName() + ":" + status.getText());
+                searchResultList.add(status.getText().replace("RT", ""));
+            }
+        }
+        String[] sRList = new String[searchResultList.size()];
+        //sRList = searchResultList.toArray(sRList);
+        return searchResultList.toArray(sRList);
+    }
+
+    public static String convertStringArrayToText(String[] arr) {
+        StringBuilder builder = new StringBuilder();
+        for(String s : arr) {
+            builder.append(s);
+        }
+        return builder.toString();
+    }
+
+    public static void tweetViralTweet(Twitter twitter) throws TwitterException{
+
     }
 
     public static void authenticate(Twitter twitter) throws TwitterException, IOException {
@@ -85,5 +96,63 @@ public class ViralTweet {
                 }
             }
         }
+    }
+
+    public static Map<String, ArrayList<String>> wordGram(String text) {
+
+        Scanner scanner = new Scanner(text);
+        Map<String, ArrayList<String>> wordMap = new HashMap<>();
+        String currentWord = scanner.next(); //.replaceAll("[^a-zA-Z ]", "").toLowerCase();;
+        String nextWord;
+        do {
+            nextWord = scanner.next(); //.replaceAll("[^a-zA-Z ]", "").toLowerCase();
+            if (!wordMap.containsKey(currentWord)) {
+                ArrayList<String> wordList = new ArrayList<>();
+                wordList.add(nextWord);
+                wordMap.put(currentWord, wordList);
+            } else {
+                ArrayList<String> wordList = wordMap.get(currentWord);
+                wordList.add(nextWord);
+                wordMap.put(currentWord, wordList);
+            }
+            currentWord = nextWord; //.replaceAll("[^a-zA-Z ]", "").toLowerCase();; //Ue this to remove punctiation
+
+        } while (scanner.hasNext());
+        {
+            currentWord = nextWord;
+            if (!wordMap.containsKey(currentWord)) {
+                ArrayList<String> wordList = new ArrayList<>();
+                wordMap.put(currentWord, wordList);
+            } else {
+                ArrayList<String> wordList = wordMap.get(currentWord);
+                wordMap.put(currentWord, wordList);
+            }
+
+        }
+        return wordMap;
+    }
+
+    public static String generateViralTweet(Map<String, ArrayList<String>> map) {
+
+        Random random = new Random();
+        List<String> keys = new ArrayList<>(map.keySet());
+        String randomKey = keys.get(random.nextInt(keys.size()));
+        String currWord = randomKey;
+        String textResult = "";
+        int tweetLimit = 140;
+
+        do {
+            textResult = textResult + " " + currWord;
+            currWord = map.get(currWord).get(random.nextInt(map.get(currWord).size()));
+            tweetLimit -= currWord.length();
+
+
+        } while (tweetLimit > 0);
+        {
+            textResult = textResult + " " + currWord;
+
+        }
+
+        return textResult;
     }
 }

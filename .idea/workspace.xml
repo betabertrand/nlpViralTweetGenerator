@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12d0c1e2-4535-4a31-b626-93f9a26b11e4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/nlpTwitterProject/ViralTweet.class" afterPath="$PROJECT_DIR$/out/production/nlpTwitterProject/ViralTweet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ViralTweet.java" afterPath="$PROJECT_DIR$/src/ViralTweet.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,24 +20,10 @@
       <file leaf-file-name="ViralTweet.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ViralTweet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="63" column="90" lean-forward="false" selection-start-line="63" selection-start-column="90" selection-end-line="63" selection-end-column="90" />
+            <state relative-caret-position="158">
+              <caret line="135" column="0" lean-forward="true" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Query.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/twitter4j-4.0.4/lib/twitter4j-core-4.0.4.jar!/twitter4j/Query.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2329">
-              <caret line="246" column="32" lean-forward="false" selection-start-line="246" selection-start-column="31" selection-end-line="246" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#13109#0" expanded="true" />
-                <element signature="e#1146#1147#0" expanded="true" />
-                <element signature="e#1180#1181#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -97,6 +80,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="799" />
     <option name="y" value="23" />
     <option name="width" value="840" />
     <option name="height" value="1027" />
@@ -146,6 +130,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;jar:///Users/bertrandsaint-preux/Documents/Fall 2017/NLP/nlpTwitterProject/twitter4j-4.0.4/lib/twitter4j-core-4.0.4.jar!/twitter4j/Query.class" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -271,12 +256,12 @@
       <option name="presentableId" value="Default" />
       <updated>1512429066004</updated>
       <workItem from="1512429067222" duration="503000" />
-      <workItem from="1513574609103" duration="4660000" />
+      <workItem from="1513574609103" duration="6591000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5163000" />
+    <option name="totallyTimeSpent" value="7094000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
@@ -402,8 +387,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ViralTweet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="63" column="90" lean-forward="false" selection-start-line="63" selection-start-column="90" selection-end-line="63" selection-end-column="90" />
+        <state relative-caret-position="158">
+          <caret line="135" column="0" lean-forward="true" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
